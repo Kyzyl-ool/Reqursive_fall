@@ -42,13 +42,26 @@ int GetE()
 
 int GetT()
 {
-	int val = GetN();
+	int val = GetB();
 	while (s[p] == '*' || s[p] == '/')
 	{
 		char op = s[p];
 		p++;
-		int val2 = GetN();
+		int val2 = GetB();
 		if (op == '*') val *= val2; else val /= val2;
 	}
 	return val;
+}
+
+int GetB()
+{
+	if (s[p] == '(')
+	{
+		p++;
+		int val = GetE();
+		assert(s[p] == ')');
+		p++;
+		return val;
+	}
+	return GetN();
 }
