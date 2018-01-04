@@ -29,13 +29,26 @@ int GetN()
 
 int GetE()
 {
-	int val = GetN();
+	int val = GetT();
 	while (s[p] == '+' || s[p] == '-')
 	{
 		char op = s[p];
 		p++;
-		int val2 = GetN();
+		int val2 = GetT();
 		if (op == '+') val += val2; else val -= val2;
+	}
+	return val;
+}
+
+int GetT()
+{
+	int val = GetN();
+	while (s[p] == '*' || s[p] == '/')
+	{
+		char op = s[p];
+		p++;
+		int val2 = GetN();
+		if (op == '*') val *= val2; else val /= val2;
 	}
 	return val;
 }

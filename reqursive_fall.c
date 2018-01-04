@@ -3,6 +3,6 @@
 
 int main()
 {
-	printf("%d\n", GetG0("1-10"));
+	printf("%d\n", GetG0("100*8-10*100"));
 	return 0;
 }
